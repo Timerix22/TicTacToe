@@ -5,6 +5,10 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="TicTacToe.Cell"
              BorderThickness="2"
-             BorderBrush="White">
-    <TextBlock TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40">X</TextBlock>
+             BorderBrush="White"
+             FontSize="40">
+    <Button Name="Text" Click="Text_OnClick"
+            HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+            HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    </Button>
 </UserControl>

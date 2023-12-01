@@ -2,17 +2,23 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d"
         x:Class="TicTacToe.MainWindow"
         Title="TicTacToe"
-        FontSize="20">
+        FontSize="20"
+        Width="600"
+        Height="600"
+        d:DesignHeight="600"
+        d:DesignWidth="600">
     <Grid>
         <Grid.RowDefinitions>40 *</Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Spacing="20">
             <Label Target="SizeTextBox" VerticalContentAlignment="Center">Size:</Label>
-            <TextBox Name="SizeTextBox"></TextBox>
+            <TextBox Name="SizeTextBox" Width="60"></TextBox>
             <Button Click="RestartButton_OnClick">Restart</Button>
         </StackPanel>
         <Grid Grid.Row="1" Name="GameGrid"></Grid>
+        <StackPanel Grid.Row="1" Name="WinPanel" IsEnabled="False"
+            HorizontalAlignment="Center" VerticalAlignment="Center"><TextBlock Name="WinText"></TextBlock></StackPanel>
     </Grid>
 </Window>
