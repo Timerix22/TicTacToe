@@ -11,15 +11,15 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
-        DrawGame();
-        _game.PlayerWon += ShowWin;
+        RestartButton_OnClick(null, null);
     }
 
-    private void RestartButton_OnClick(object? sender, RoutedEventArgs e)
+    private void RestartButton_OnClick(object? sender, RoutedEventArgs? e)
     {
         int size = Convert.ToInt32(SizeTextBox.Text);
         _game = new Game(size, size);
         _game.PlayerWon += ShowWin;
+        _game.PlayerChanged += playerChar => CurrentPlayerText.Text = playerChar.ToString();
         DrawGame();
     }
 
@@ -45,10 +45,7 @@ public partial class MainWindow : Window
         for(int y=0; y<size; y++)
         for (int x = 0; x < size; x++)
         {
-            var cellView = new Cell
-            {
-                Game = _game
-            };
+            var cellView = new Cell { Game = _game };
             cellView.SetValue(Grid.ColumnProperty, x);
             cellView.SetValue(Grid.RowProperty, y);
             char cellValue = _game.GameField[y][x];

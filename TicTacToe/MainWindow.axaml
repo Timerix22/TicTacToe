@@ -14,8 +14,10 @@
         <Grid.RowDefinitions>40 *</Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Spacing="20">
             <Label Target="SizeTextBox" VerticalContentAlignment="Center">Size:</Label>
-            <TextBox Name="SizeTextBox" Width="60"></TextBox>
+            <TextBox Name="SizeTextBox" Width="60">3</TextBox>
             <Button Click="RestartButton_OnClick">Restart</Button>
+            <Label Target="CurrentPlayerText" Margin="100 0 0 0">Current player:</Label>
+            <Border BorderThickness="1"><TextBlock Name="CurrentPlayerText" VerticalAlignment="Center">X</TextBlock></Border>
         </StackPanel>
         <Grid Grid.Row="1" Name="GameGrid"></Grid>
         <StackPanel Grid.Row="1" Name="WinPanel" IsEnabled="False"

@@ -15,6 +15,7 @@ public class Game
     public char CurrentPlayerSign => _players[_nextPlayerIndex];
     
     public event Action<char>? PlayerWon;
+    public event Action<char>? PlayerChanged;
     
     private char[][] _gameField;
     private char[] _players = { 'X', '0' };
@@ -35,7 +36,7 @@ public class Game
         }
     }
     
-    public void Turn(int cell_row, int cell_col)
+    public void DoTurn(int cell_row, int cell_col)
     {
         if (_gameField[cell_row][cell_col] != '\0')
             throw new Exception("the cell was already used");
@@ -49,6 +50,7 @@ public class Game
         _nextPlayerIndex++;
         if (_nextPlayerIndex >= _players.Length)
             _nextPlayerIndex = 0;
+        PlayerChanged?.Invoke(CurrentPlayerSign);
     }
 
     private bool CheckWinCombination(int cell_row, int cell_col)

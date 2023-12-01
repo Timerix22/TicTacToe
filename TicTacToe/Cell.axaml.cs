@@ -19,7 +19,7 @@ public partial class Cell : UserControl
         if(Text.Content != null)
            return;
         Text.Content = Game.CurrentPlayerSign;
-        Game.Turn(GetValue(Grid.RowProperty), GetValue(Grid.ColumnProperty));
+        Game.DoTurn(GetValue(Grid.RowProperty), GetValue(Grid.ColumnProperty));
         IsEnabled = false;
         Foreground = Brushes.White;
     }
